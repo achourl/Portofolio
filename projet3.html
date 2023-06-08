@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fichier.js">
+    <link rel="stylesheet" href="fichier.php">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<header>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <a class="navbar-button" href="accueil.html"><img class="img-accueil"src="./img/home.png" alt="accueil"></a>
+            <button id="theme-toggle" class="toggle-button">
+                <span class="toggle-icon"></span>
+              </button>                                 
+        </ul>
+    </nav>
+    
+</header>
+<body>
+    <main class="main-project">
+        <button id="backToTopBtn" title="Retour en haut">
+            <span class="arrow">&#8593;</span>
+          </button>
+             <select id="categoryFilter2">
+              <option value="">Voir les autres projets</option>
+              <option value="detail-projet.html">Accidents de la route</option>
+              <option value="projet2.html">Tri de dépêches</option>
+              <option value="projet3.html">Titanic</option>
+            
+            </select>
+            <script>
+              const categoryFilter = document.getElementById('categoryFilter2');
+            
+              categoryFilter.addEventListener('change', function() {
+                const selectedOption = categoryFilter.options[categoryFilter.selectedIndex];
+                const destination = selectedOption.getAttribute('value');
+            
+                if (destination) {
+                  window.location.href = destination;
+                }
+              });
+            </script>
+          
+            <h1 class="title-project">Titanic</h1>
+            <div class="details-mesprojets">
+                <div class="image-detail">
+                  <img class="agrandir" src="./img/data-s1.png" alt="Image projet 2" width="300">
+                </div>
+                <div class="text">
+                  
+                  <p>
+                    Nous avons dans un premier temps recherché des informations sur le naufrage et le bateau en lui-même dans le but de pouvoir réaliser un schéma entités-associations comprenant les classes des 
+                  passagers, des informations sur les passagers (nom, prénom, âge, sexe etc.), les canaux de sauvetage, 
+                  les navires venus récupérer les passagers des canaux de sauvetage etc.
+                </p>
+                <p>
+                  Dans un second temps, nous 
+                  avons créer la base de données en justifiant chaque relation puis nous l’avons implémentée. Pour 
+                  chaque relation créer nous avons exprimé des contraintes afin que lors de l’exploitation de la base de 
+                  données, les informations obtenues soient cohérentes, par exemple on a vérifié que l’âge de la 
+                  catégorie enfant était bien inférieure à 12 ans ou encore que chaque personnel fût bien compris dans 
+                  une liste de rôle. 
+                </p>
+                <p>
+                  Lors de l’implémentation, nous avons réalisé des tests afin de vérifier les 
+                  contraintes exprimées auparavant. Pour créer la base de données, nous avons utilisé l’application 
+                  DBeaver CE
+                </p>
+                </div>
+              </div>
+              <div class="details-mesprojets">
+                <div class="text">
+                  <p>Enfin, nous avons chacun exploité les données afin de répondre à des questions portant sur le 
+                    sauvetage des passagers, on a utilisé différentes requêtes pour une même question afin de pouvoir 
+                    varier les manières d’exploiter les données. <br> La problématique étant de comprendre pourquoi il y a eu 
+                    que très peu de passagers sauvés, on a donc exploité et visualisé les données pour chaque sexe et 
+                    pour chaque classe ainsi que pour chaque tranche d’âge.
+                    </p>
+                </div>
+                <div class="image-detail">
+                    <img class="agrandir" src="./img/titanic-s1.png" alt="Image projet 2" width="300">
+                </div>
+              </div>
+              <div class="details-mesprojets">
+                <div class="image-detail">
+                  <img class="agrandir" src="./img/pres-s1.png" alt="Image projet 2" width="300">
+                </div>
+                <div class="text">
+                  <p>
+                    La réalisation de ce projet était dans nos attentes, le projet a été réalisé en groupe de deux ainsi 
+                    chaque étape à été réalisée en commun. Nous avons réussi à atteindre les objectifs demandés. <br> 
+                  </p>
+                    <p>
+                      Bilan compétences : <br>
+                    • Concevoir et mettre en place une base de données à partir d’un cahier des charges client. <br>
+                    • Administrer une base de données, concevoir et réaliser des systèmes d’informations 
+                    décisionnels <br>
+                    • Identifier les besoins métiers des clients et des utilisateurs <br>
+                    • Identifier ses aptitudes à travailler dans une équipe <br>
+                    </p>
+                    <p>
+                      Apprentissage critique : <br>
+                    • Mettre à jour et interroger une base de données relationnelle (en requêtes directes ou à
+                    travers une application) <br>
+                    • Concevoir une base de données relationnelle à partir d’un cahier des charges. <br>
+                    </p>
+                    
+                   
+                </div>
+              </div>
+              <script>
+                window.addEventListener('scroll', function() {
+                    var backToTopBtn = document.getElementById('backToTopBtn');
+                    
+                    if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                    } else {
+                    backToTopBtn.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('backToTopBtn').addEventListener('click', function() {
+                    window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                    });
+                });
+                const toggleButton = document.getElementById('theme-toggle');
+                const body = document.body;
+                const localStorageKey = 'darkMode';
+                const isDarkMode = localStorage.getItem(localStorageKey) === 'true';
+                toggleButton.classList.toggle('active', isDarkMode);
+                body.classList.toggle('dark-mode', isDarkMode);
+
+                function toggleDarkMode() {
+                  const isActive = toggleButton.classList.toggle('active');
+                  body.classList.toggle('dark-mode', isActive);
+                  localStorage.setItem(localStorageKey, isActive.toString());
+                }
+                toggleButton.addEventListener('click', toggleDarkMode);
+
+              </script>
+        
+    </main>
+
+
+</body>
+<footer>
+  <div class="social-icons">
+    <a href="https://discord.com" class="social-icon">
+      <i class="fab fa-discord"></i>
+    </a>
+    <a href="https://github.com" class="social-icon">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://instagram.com" class="social-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</footer>
+  <script src="fichier.js"></script>
+</html>

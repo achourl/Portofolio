@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fichier.js">
+    <link rel="stylesheet" href="fichier.php">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<header>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <a class="navbar-button" href="accueil.html"><img class="img-accueil"src="./img/home.png" alt="accueil"></a>
+            <button id="theme-toggle" class="toggle-button">
+                <span class="toggle-icon"></span>
+              </button>                                
+        </ul>
+    </nav>
+    
+</header>
+<body>
+    <main class="main-project">
+        <button id="backToTopBtn" title="Retour en haut">
+            <span class="arrow">&#8593;</span>
+          </button>
+         <select id="categoryFilter2">
+          <option value="">Voir les autres projets</option>
+          <option value="detail-projet.html">Accidents de la route</option>
+          <option value="projet2.html">Tri de dépêches</option>
+          <option value="projet3.html">Titanic</option>
+
+        </select>
+        <script>
+          const categoryFilter = document.getElementById('categoryFilter2');
+        
+          categoryFilter.addEventListener('change', function() {
+            const selectedOption = categoryFilter.options[categoryFilter.selectedIndex];
+            const destination = selectedOption.getAttribute('value');
+        
+            if (destination) {
+              window.location.href = destination;
+            }
+          });
+        </script>
+      
+            <h1 class="title-project">Accidents de la route</h1>
+            <div class="details-mesprojets">
+                <div class="image-detail agrandir">
+                  <img src="./img/sae2.04-nettoyage.png" onmouseover="zoomImage(event)" onmouseout="resetImage()" alt="Image projet 2" width="300">
+                </div>
+                <div class="text">
+                  
+                  <p>
+                    Dans un premier temps, il fallait explorer la base de données pour voir comment elle était construite 
+                    et agencée pour que par la suite le nettoyage et l’exploitation soient plus facile. 
+                    Pour la partie nettoyage, il fallait nettoyer plusieurs tables pour enlever les donner inutiles mais 
+                    également pour réunir les données de 2006 à 2021 car dans la base de données proposée, les données n’étaient
+                     pas réunies. Donc pour cela, nous avons créé des vues pour stocker ces nouvelles données réunissant toutes 
+                     les années, mais dans les tables de 2006 à 2018 le type de certains attributs n’était pas le même que dans 
+                     les tables de 2019 à 2021 et nous ne pouvions donc pas uniquement les joindre. Il nous a donc fallu convertir
+                      tous les types en utilisant des fonctions de conversion. De plus, les dates dans certaines tables étaient en 
+                      format jj/mm/aa et dans d’autres le format était  jj/mm/aaaa ce qui nous a donc obligé à tout mettre dans le même 
+                      format afin de pouvoir les réunir correctement.
+                  </p>
+                </div>
+              </div>
+              <div class="details-mesprojets">
+                <div class="text">
+                  <p>Une fois l’étape de nettoyage faite, nous avons fait de l’extraction de données selon notre cas. 
+                    Notre cas était d’analyser les données de la région Nouvelle-Aquitaine sur les personnes de moins
+                     de 18 ans. Pour cela on a créé des tables temporaires et des vues afin de stocker ces données.
+                      Nous avions une première table dans laquelle on pouvait retrouver toutes les caractéristiques 
+                      des victimes mineures d’accidents de la route sur la région Nouvelle-Aquitaine, telles que le 
+                      numéro d’accident, le numéro de véhicule, le lieu, le jour, si l’accident a eu lieu le matin ou
+                       l’après-midi etc. Une deuxième table sur les véhicules afin de savoir quels étaient les types 
+                       de véhicules impliqués dans l’accident comme la voiture, le vélo, le tram etc. Puis une dernière
+                        table sur le lieu afin de connaître les informations des victimes pour chaque département de la région. 
+                    Après cette étape d’extraction, nous avons fait quelques tables qui étaient le nombre d’hommes
+                     victimes,le nombre de femme, le nombre de personnes tuées, le nombre de personnes blessées, le 
+                     nombre de personnes hospitalisées qui ont permis à la fin de créer une table bilan avec les seulement
+                      les informations nécessaires.
+                   Une fois toutes les tables créées, nous avons exporter les données dans un document csv à savoir excel pour l'étape de statistiques.
+                   
+                    </p>
+                </div>
+                <div class="image-detail agrandir">
+                    <img onmouseover="zoomImage(event)" onmouseout="resetImage()" src="./img/sae.04-extraction.png" alt="Image projet 2" width="300">
+                </div>
+              </div>
+              <div class="details-mesprojets">
+                <div class="image-detail agrandir">
+                  <img onmouseover="zoomImage(event)" onmouseout="resetImage()" src="./img/sae.04-dossier.png" alt="Image projet 2" width="300">
+                </div>
+                <div class="text">
+                
+                  <p>
+                    Enfin, nous avons produit des graphes ainsi que leurs commentaires en anglais car l’objectif final était de produire un document destiné à avertir et prévenir les usagers de la route sur les accidents de la route. <br>
+                    
+                   </p>
+                   <p>Bilan compétence : <br>
+                    • Optimiser une base de données <br>
+                    •	Identifier les besoins métiers des clients et des utilisateurs<br>
+                    •	Identifier ses aptitudes à travailler dans une équipe<br></p>
+                   <p>
+                    Apprentissage critique : <br>
+                    • Mettre à jour et interroger une base de données relationnelle (en requêtes directes ou à travers une application) <br>
+                    • Visualiser des données
+                   </p>
+                </div>
+              </div>
+              <script>
+                window.addEventListener('scroll', function() {
+                    var backToTopBtn = document.getElementById('backToTopBtn');
+                    
+                    if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                    } else {
+                    backToTopBtn.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('backToTopBtn').addEventListener('click', function() {
+                    window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                    });
+                });
+
+                const toggleButton = document.getElementById('theme-toggle');
+                const body = document.body;
+                const localStorageKey = 'darkMode';
+                const isDarkMode = localStorage.getItem(localStorageKey) === 'true';
+                toggleButton.classList.toggle('active', isDarkMode);
+                body.classList.toggle('dark-mode', isDarkMode);
+
+                function toggleDarkMode() {
+                  const isActive = toggleButton.classList.toggle('active');
+                  body.classList.toggle('dark-mode', isActive);
+                  localStorage.setItem(localStorageKey, isActive.toString());
+                }
+                toggleButton.addEventListener('click', toggleDarkMode);  
+             </script>       
+    </main>
+
+
+</body>
+<footer>
+  <div class="social-icons">
+    <a href="https://discord.com" class="social-icon">
+      <i class="fab fa-discord"></i>
+    </a>
+    <a href="https://github.com" class="social-icon">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://instagram.com" class="social-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</footer>
+  <script src="fichier.js"></script>
+</html>

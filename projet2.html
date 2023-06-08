@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fichier.js">
+    <link rel="stylesheet" href="fichier.php">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<header>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <a class="navbar-button" href="accueil.html"><img class="img-accueil"src="./img/home.png" alt="accueil"></a>
+            <button id="theme-toggle" class="toggle-button">
+                <span class="toggle-icon"></span>
+              </button>                                 
+        </ul>
+    </nav>
+    
+</header>
+<body>
+    <main class="main-project">
+        <button id="backToTopBtn" title="Retour en haut">
+            <span class="arrow">&#8593;</span>
+          </button>
+             <select id="categoryFilter2">
+              <option value="">Voir les autres projets</option>
+              <option value="detail-projet.html">Accidents de la route</option>
+              <option value="projet2.html">Tri de dépêches</option>
+              <option value="projet3.html">Titanic</option>
+            </select>
+            <script>
+              const categoryFilter = document.getElementById('categoryFilter2');
+            
+              categoryFilter.addEventListener('change', function() {
+                const selectedOption = categoryFilter.options[categoryFilter.selectedIndex];
+                const destination = selectedOption.getAttribute('value');
+            
+                if (destination) {
+                  window.location.href = destination;
+                }
+              });
+            </script>
+          
+            <h1 class="title-project">Tri de dépêches</h1>
+            <div class="details-mesprojets">
+                <div class="image-detail">
+                  <img class="agrandir" src="./img/S1.01-class-man.png" alt="Image projet 2" width="300">
+                </div>
+                <div class="text">
+                  
+                  <p>
+                    Nous avons dans un premier temps créer un fichier lexique où nous avons nous-même classer
+                     les dépêches par mot puis nous leur avons attribué un score/poids qui allait de 1 à 5, plus
+                      le poids est élevé plus le mot de la dépêche
+                     appartient fortement à cette catégorie pour que par la suite nous puissions comparer les classifications. 
+                  </p>
+                  <p> Ensuite, nous avons créé un programme de classification manuelle qui lors de son exécution créait un fichier de sortie avec toutes les dépêches triées et les pourcentages de dépêches bien triées. Pour faire cela on a d’abord créé une classe PaireChaineEntier qui permettait de récupérer une chaîne et son score, puis une méthode initLexique qui initialisait un lexique avec tous les mots de la dépêche.
+                    Nous avons ensuite créé une fonction qui permettait de calculer le score de la dépêche et enfin une méthode classementDepeches pour chacune des dépêches, calcule le score pour chaque catégorie et écrit dans le fichier, le nom de la catégorie ayant le plus grand score ainsi que les pourcentages conformément au format attendu pour les fichiers réponses.
+                    </p>
+                </div>
+              </div>
+              <div class="details-mesprojets">
+                <div class="text">
+                 <p>               
+                  Pour la classification automatique, nous avons également redirigé les résultats vers un fichier sortie avec toutes les dépêches triées et les pourcentages de dépêches bien triées. Nous avons ensuite créé des méthodes qui permettaient d’initialiser un dictionnaire contenant tous les mots présents dans au moins une dépêche de la catégorie. Puis un calcule de score qui met à jour les scores des mots présents dans dictionnaire. Lorsqu'un mot présent dans dictionnaire apparaît dans une dépêche,  son score est : décrémenté si la dépêche n'est pas dans la catégorie et incrémenté si la dépêche est dans la catégorie.                  
+                  </p>
+                  <p>
+                    Enfin on a attribué, avec une fonction, un poids au score, qui retourne une valeur de poids (1,2 ou 3) en fonction du score. Pour terminer nous avons générer un lexique qui crée pour la catégorie le fichier lexique à partir du vecteur de dépêches. Cette méthode devait construire une liste, puis mettre à jour les scores dans ce vecteur avec calculScores et enfin utiliser le vecteur résultant pour créer un fichier lexique en utilisant la fonction poidsPourScore
+                  </p>
+                </div>
+                <div class="image-detail">
+                    <img class="agrandir" src="./img/S1.01-res-man.png" alt="Image projet 2" width="300">
+                </div>
+              </div>
+              <div class="details-mesprojets">
+                <div class="image-detail">
+                  <img class="agrandir" src="./img/S1.01-res-auto.png" alt="Image projet 2" width="300">
+                </div>
+                <div class="text">
+                  <p>
+                    Après avoir fait les classifications automatiques et manuelles nous devions les optimiser afin qu’elle s’exécute le plus rapidement possible. 
+                  A la fin, nous avons rédiger un rapport en anglais reprenant tous ce que nous avions réalisé.
+                  </p>
+                  <p>
+                    Bilan compétence : <br>
+                  
+                    
+                    •	Identifier les besoins métiers des clients et des utilisateurs<br>
+                    •	Identifier ses aptitudes à travailler dans une équipe<br>
+                  </p>
+                  <p>
+                    Apprentissage critique : <br>
+                    • Analyser un problème avec méthode (découpage en éléments algorithmiques simples, structure de données…) <br>
+                    • Comparer des algorithmes pour des problèmes classique (tri simple,recherche ...)
+              
+                  </p>
+                </div>
+              </div>
+              <script>
+                window.addEventListener('scroll', function() {
+                    var backToTopBtn = document.getElementById('backToTopBtn');
+                    
+                    if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                    } else {
+                    backToTopBtn.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('backToTopBtn').addEventListener('click', function() {
+                    window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                    });
+                });
+  
+              </script>
+              <script>
+                const toggleButton = document.getElementById('theme-toggle');
+                const body = document.body;
+                const localStorageKey = 'darkMode';
+                const isDarkMode = localStorage.getItem(localStorageKey) === 'true';
+                toggleButton.classList.toggle('active', isDarkMode);
+                body.classList.toggle('dark-mode', isDarkMode);
+
+                function toggleDarkMode() {
+                  const isActive = toggleButton.classList.toggle('active');
+                  body.classList.toggle('dark-mode', isActive);
+                  localStorage.setItem(localStorageKey, isActive.toString());
+                }
+                toggleButton.addEventListener('click', toggleDarkMode);
+
+              </script>
+        
+    </main>
+</body>
+<footer>
+  <div class="social-icons">
+    <a href="https://discord.com" class="social-icon">
+      <i class="fab fa-discord"></i>
+    </a>
+    <a href="https://github.com" class="social-icon">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://instagram.com" class="social-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</footer>
+  <script src="fichier.js"></script>
+</html>
